@@ -4,67 +4,51 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+
 In the project directory, you can run:
+### 'yarn install' or ` npm install`
+this will install all dependencies
+
 
 ### `yarn start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `yarn test`
+###  This is the UI section built with react library
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+It consists of category component, productitem component, productdetail component, cart component and mini cart component
 
-### `yarn build`
+I use react router with  following routing
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+'/' will be redirect to '/all'
+'/all' to get all products from all categories
+'/clothes' to get products that has category 'clothes'
+'/tech' to get products that  have category 'tech'
+'/cart' to show the cart view
+"/products/:categoryName/:productId" to get product detail view (required parameters are category name and product id)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## i built the cart with a certain mechanism
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+there are products with no attributes, several attributes, one attribute and out of stock
+if i add a product with no attribute to the cart and there is same product in cart then  the quantity ofthe product in cart will be increased
+if i add a product with no attribute to the cart and there is no product with same id in cart then a new product with quantity 1 will be added to the cart
+if i add a product with one attribute to the cart and there is same product in cart then if the product in cart has same attribute selection then the quantity will be increased otherwise new product will be added to cart with different attribute selection
+if i add a product with several attributes to the cart and there is same product in cart then if the product in cart has same attributes selections then the quantity will be increased otherwise new product will be added to cart with different attributes selections
 
-### `yarn eject`
+## restriction
+I cannot add any product to cart without selecting from all available attributes
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# features
+I can increase or decrease quantity of any product in the cart from mini cart or cart component
+I can remove any product from the cart from mini cart or cart component
+I change the currency anytime
+I can close any sub-menus by clicking outside or when i navigate to next view
+If the product is out of stock then add to cart button will be disabled 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+All icons in the app are svg icons.
+The product color selections are shown as actual color not hex value 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+I have used redux in this application to manage data shared by various components
